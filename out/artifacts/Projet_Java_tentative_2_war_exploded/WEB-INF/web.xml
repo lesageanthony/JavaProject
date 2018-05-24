@@ -13,7 +13,6 @@
         <url-pattern>/connexion</url-pattern>
     </servlet-mapping>
 
-
     <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>Logout</servlet-class>
@@ -30,14 +29,6 @@
     <servlet-mapping>
         <servlet-name>Private</servlet-name>
         <url-pattern>/private</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>CreateUserPage</servlet-name>
-        <servlet-class>CreateUserPage</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>CreateUserPage</servlet-name>
-        <url-pattern>/create-user</url-pattern>
     </servlet-mapping>
 
 </web-app>

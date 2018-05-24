@@ -11,7 +11,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.[sc]ss$/,
+                test: /\.s?[ac]ss$/,
                 include: /node_modules/,
                 use: [
                     { loader: "style-loader" },

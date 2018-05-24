@@ -1,33 +1,40 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:layout>
+<%--
+  Created by IntelliJ IDEA.
+  User: onyrick
+  Date: 22/05/18
+  Time: 10:22
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+             pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+</head>
+<body>
+<div class="header">
+    <img src="https://upload.wikimedia.org/wikipedia/fr/2/2e/Java_Logo.svg" alt="Logo">
+</div>
 
-    <jsp:attribute name="header">
-      <h1>Welcome</h1>
-    </jsp:attribute>
+<p>${ !empty message ? message : '' }</p>
 
-    <jsp:body>
+<p>
+<h2>Connexion</h2>
+<form action="connexion" method="post">
+    <p>
+        <label for="login">Login : </label>
+        <input type="text" id="login" name="login">
+    </p>
+    <p>
+        <label for="password">Password : </label>
+        <input type="password" id="password" name="password">
+    </p>
 
-        <p>${ !empty message ? message : '' }</p>
+    <input type="submit">
+</form>
 
-        <p>
-        <h2>Connexion</h2>
+</body>
+</html>
 
-        <form action="connexion" method="post">
-            <p>
-                <label for="login">Login : </label>
-                <input type="text" id="login" name="login">
-            </p>
-            <p>
-                <label for="password">Password : </label>
-                <input type="password" id="password" name="password">
-            </p>
-
-            <input type="submit">
-        </form>
-    </jsp:body>
-
-    <jsp:attribute name="footer">
-      <p id="copyright">Copyright 1927, Future Bits When There Be Bits Inc.</p>
-    </jsp:attribute>
-</t:layout>

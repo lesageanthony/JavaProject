@@ -48,8 +48,7 @@ public class ConnexionBdd {
         }
 
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/java2", "root", "azerty123");
-
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:1234/java2", "root", "secret");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -123,6 +122,7 @@ public class ConnexionBdd {
         }
     }
     public void deleteUser(User user, int id) {
+
         loadDatabase();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM users WHERE id=?;");
