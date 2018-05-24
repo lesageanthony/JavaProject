@@ -43,12 +43,12 @@
         <url-pattern>/private</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>Test</servlet-class>
+        <servlet-name>CreateUserPage</servlet-name>
+        <servlet-class>CreateUserPage</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>CreateUserPage</servlet-name>
+        <url-pattern>/create-user</url-pattern>
     </servlet-mapping>
 
 </web-app>

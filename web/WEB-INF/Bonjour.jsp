@@ -15,35 +15,31 @@
     <title>Bonjour</title>
 </head>
 <body>
-<div class="header">
-    <img src="https://upload.wikimedia.org/wikipedia/fr/2/2e/Java_Logo.svg" alt="Logo">
-</div>
 <p>
 <h2>Inscription</h2>
-<form action="hello" method="post">
+<form action="subscribe" method="post">
     <p>
         <label for="login">Login : </label>
         <input type="text" id="login" name="login">
     </p>
     <p>
+        <label for="email">Email : </label>
+        <input type="email" id="email" name="email">
+    </p>
+    <p>
         <label for="password">Password : </label>
         <input type="password" id="password" name="password">
     </p>
+    <label for="type">Type : </label>
+
+    <select id="type">
+        <option value="particulier" selected>Particulier</option>
+        <option value="entreprise">Entreprise</option>
+        <option value="association">Association</option>
+    </select>
 
     <input type="submit">
 </form>
 
-<h3>Liste des users</h3>
-
-<c:forEach items="${ users }" var="user">
-    <c:out value = "${user.login}"/> / <c:out value = "${user.password}"/><br>
-</c:forEach>
-
-<p>
-    <%
-        String shit = (String) request.getAttribute("shit");
-        out.println(shit);
-    %>
-</p>
 </body>
 </html>
