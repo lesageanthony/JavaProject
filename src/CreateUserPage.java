@@ -4,43 +4,41 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Test
  */
 @WebServlet(urlPatterns="/create-user")
 public class CreateUserPage extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    public CreateUserPage() {
+    private static final long serialVersionUID = 1L; //?
+
+    public CreateUserPage() { // ?
         super();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Bonjour.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/create_user.jsp").forward(request, response);
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        //response.getWriter().append("Served at: ").append(request.getContextPath());
-        String message = "Java is shit !";
-        request.setAttribute("shit", message);
 
-        User user = new User();
-        user.setLogin(request.getParameter("login"));
-        user.setPassword(request.getParameter("password"));
+        if(request.getParameter("password").trim().compareTo("") == 0 && request.getParameter("email").trim().compareTo("") == 0 && request.getParameter("login").trim().compareTo("") == 0) {
+            if (request.getParameter("password").equals(request.getParameter("password_confirm"))) {
+                User user = new User();
+                user.setLogin(request.getParameter("login"));
+                user.setPassword(request.getParameter("password"));
 
-        ConnexionBdd login = new ConnexionBdd();
-        login.addUser(user);
+                ConnexionBdd connexionBdd = new ConnexionBdd();
+                connexionBdd.addUser(user);
 
-        // Listing des users
-        request.setAttribute("users", login.listUsers());
+                HttpSession session = request.getSession();
+                session.setAttribute( "connected", true );
+            }
+        }
 
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/Bonjour.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/create_user.jsp").forward(request, response);
 
     }
 
